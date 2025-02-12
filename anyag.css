@@ -171,6 +171,10 @@ pre code {
     color: rgb(241, 241, 241);
 }
 
+pre.hidden {
+    display: none;
+}
+
 .kodkiemeles {
     font-family: 'Courier New', Courier, monospace;
     background-color: #800080;
