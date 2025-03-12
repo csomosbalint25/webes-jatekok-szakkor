@@ -236,7 +236,7 @@ function ütköznek(téglalap1, téglalap2) {
 
             <p>Hozzuk létre a <span class="kodreszlet">dínó</span> objektumot a téglalap tulajdonságaival, majd rajzoljuk ki a dínót:</p>
             
-            <pre>
+            <pre class="hidden">
                 <code>
 /*Változók*/
 // dínó
@@ -249,7 +249,7 @@ let dínó = {
                 </code>
             </pre>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function rajzolás() {
     // háttér
@@ -325,7 +325,7 @@ function rajzolás() {
 
             <p>A fenti megjegyzés alapján a <span class="kodreszlet">frissítés(dt)</span> függvényben kezelnünk kell a <span class="kodreszlet">dínó</span> esését. Azonban az ennek kiszámításához szükséges változók a <span class="kodreszlet">dínó</span> tulajdonságai, vagyis bővítenünk kell a <span class="kodreszlet">dínó</span> objektumot újabb adattagokkal: tárolnunk kell a függűleges sebességét (<span class="kodreszlet">vy</span>), valamint a függőleges gyorsulását (<span class="kodreszlet">ay</span>):</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 /*Változók*/
 // dínó
@@ -342,7 +342,7 @@ let dínó = {
 
             <p>A <span class="kodreszlet">frissítés(dt)</span> függvényben már csak alkalmaznunk kell a fenti két képletet:</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -365,7 +365,7 @@ function frissítés(dt) {
             
             <p>Ezért kellene egy <b>megállási feltétel</b>: logikusan következne az a feltétel, hogy addig zuhanjon, amíg a <span class="kodreszlet">dínó</span> nem ütközik a talajjal. Ezt viszont nem tehetjük meg, mert a talajt nem téglalapként tároljuk. Marad a megállás pontjának kiszámítása:</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -418,7 +418,7 @@ let pont = 0;
 
             <p>Tehát a megállási feltétel érvényben van a szóköz lenyomásának pillanatában, ezért először ki kell mozgatnunk onnan a <span class="kodreszlet">dínó</span>t:</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -456,7 +456,7 @@ let pont = 0;
                 </code>
             </pre>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -522,7 +522,7 @@ let pont = 0;
 
             <p>Az első elem kivételes, mert ennek konkrétan meg kell adnunk az <span class="kodreszlet">x</span> pozícióját, ami 0. Minden további elem az előtte lévő elem <span class="kodreszlet">x</span> pozíciójához viszonyul - <span class="kodreszlet">M</span> távolságra van tőle.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 // egyéb változók
 let kaktuszok = [];
@@ -548,7 +548,7 @@ kaktuszok.push({x: kaktuszok[kaktuszok.length - 1].x + M, y: canvas.height - M *
 
             <p>Kíváncsiságból rajzoljuk ki ezeket a tömbelemeket szürke négyzetekként.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function rajzolás() {
     // háttér
@@ -590,7 +590,7 @@ function rajzolás() {
 
             <p>Ennek megvalósítását írjuk meg egy erre szolgáló függvényben, melynek neve legyen <span class="kodreszlet">újKaktusz()</span>.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 /* === SEGÉDFÜGGVÉNYEK === */
 
@@ -644,7 +644,7 @@ let pont = 0;
                 </code>
             </pre>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -741,7 +741,7 @@ let pont = 0;
             
             <p>A <span class="kodreszlet">frissítés(dt)</span> függvényben mozgassunk el minden kaktuszt (tömbelemet) a <span class="kodreszlet">kaktuszsebesség</span>nek megfelelően. Ha az első tömbelem (legyen az kaktusz vagy üres) teljesen elhagyta a képernyőt, akkor töröljük ki a tömbből. Ennek köszönhetően fog újabb kaktusz generálódni (<span class="kodreszlet">újKaktusz()</span>). Ha egy tömbelemet töröltünk, akkor növeljünk a <span class="kodreszlet">pont</span>on is.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -790,7 +790,7 @@ let pont = 0;
 
             <p>Ezután vizsgáljuk meg, hogy van-e olyan (ténylegesen kirajzolt, vagyis 1-es típusú) kaktusz, amelyik ütközik a <span class="kodreszlet">dínó</span>val. Ha van, a <span class="kodreszlet">vége</span> legyen <span class="kodreszlet">true</span>.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 function frissítés(dt) {
     // dínó irányítása
@@ -817,7 +817,7 @@ function frissítés(dt) {
 
             <p><b>Álljon le a játék</b>, amikor érintkezünk egy kaktusszal.</p>
 
-            <pre>
+            <pre class="hidden">
                 <code>
 /* === ANIMÁCIÓS CIKLUS === */
 
