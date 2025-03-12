@@ -119,7 +119,7 @@
 
             <p>A <span class="kodreszlet">kosár</span> objektumot (a korábbi objektumokhoz hasonlóan) téglalapként írjuk le, hogy az ütközést könnyen tudjuk vizsgálni az <span class="kodreszlet">ütköznek(téglalap1, téglalap2)</span> függvénnyel.</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 /*Változók*/
 // kosár objektum
@@ -136,7 +136,7 @@
 
             <p>Rajzoljuk ki a kosarat!</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function rajzolás() {
     ...
@@ -285,7 +285,7 @@ console.log(szereplok);
 
             <p>Hozzuk létre a <span class="kodreszlet">billentyűk</span> nevű tömböt:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 // egyéb változók
  // az éppen hulló almákat tároló tömb
@@ -299,7 +299,7 @@ let db = 0; // begyűjtött almák száma
 
             <p>Kezeljük le a <b>gomblenyomás</b>, valamint a <b>gombfelengedés</b> eseményt:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 /* === ESEMÉNYEK === */
 
@@ -316,7 +316,7 @@ document.addEventListener('keyup', e => {
 
             <p>A tömb tartalma alapján mozgassuk a <span class="kodreszlet">kosár</span> szereplőt úgy, hogy az <b>ne mehessen ki a játéktérről</b> egyik oldalon sem:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     // kosár irányítása
@@ -349,7 +349,7 @@ function frissítés(dt) {
 
             <p>Az almák a játéktér <b>tetején</b> jelennek meg vízszintesen <b>véletlen helyen</b>, majd azonnal <b>elindulnak</b> egyenletes sebességgel lefelé. Minden alma egy külön objektum (téglalap), melyeket az <span class="kodreszlet">almák</span> tömbben fogunk tárolni. Mivel nagyon sok alma generálódik a játékban, ezeket nem fogjuk manuálisan a játék elején egyesével létrehozni, hanem egy függvény segítségével generáljuk le őket és tesszük bele az <span class="kodreszlet">almák</span> tömbbe. Hozzuk létre ezt a tömböt!</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 // egyéb változók
 <span class="kodkiemeles">let almák = [];</span> // az éppen hulló almákat tároló tömb
@@ -369,7 +369,7 @@ let db = 0; // begyűjtött almák száma
                 <li>fűzzük az almát az <span class="kodreszlet">almák</span> tömb végére a <span class="kodreszlet">.push()</span> paranccsal.</li>
             </ol>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 /* === SEGÉDFÜGGVÉNYEK === */
 
@@ -392,7 +392,7 @@ let db = 0; // begyűjtött almák száma
 
             <p>Próbáljuk ki ezt a függvényt és generáljunk le egy almát az animációs ciklus előtt az <span class="kodreszlet">újAlma();</span> függvény megívásával. Ebben a pillanatban bekerült egy alma az <span class="kodreszlet">almák</span> tömbbe. Írjuk ki a console-ra az <span class="kodreszlet">almák</span> tömböt, hogy megbizonyosodjunk erről!</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 // új alma függvény meghívása
 <span class="kodkiemeles">újAlma();
@@ -459,7 +459,7 @@ if (van_e) {
 
             <p>A <span class="kodreszlet">rajzolás()</span> függvényben ki kell rajzolnunk az almákat. Mindet. Vagyis be kell járnunk az <span class="kodreszlet">almák</span> tömböt, hogy minden elemén végre tudjuk hajtani a kirajzolást. Viszont le kell kezelnünk azt, hogy éppen egészséges vagy romlott almával van-e dolgunk, mert ettől függ, hogy a <b>piros</b> vagy a <b>fekete</b> alma képét rajzoljuk-e ki:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function rajzolás() {
     // háttér
@@ -498,7 +498,7 @@ function rajzolás() {
 
             <p>Az almák mozgatásánál hasonló logikát kell követnünk, mint a kirajzolásuknál. A mozgatást minden képernyőfrissítésnél minden almán el kell végeznünk, ezért be kell járnunk az <span class="kodreszlet">almák</span> tömböt, és minden alma <span class="kodreszlet">y</span> pozícióján növelni kell egy kicsit. Az almák sebességét az <span class="kodreszlet">almasebesség</span> változó határozza meg.</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -537,7 +537,7 @@ function frissítés(dt) {
 
             <p>Akkor tudunk almát begyűjteni (és így pontot kapni), ha a kosár és <b>valamelyik</b> alma átfedésben van, más szóval ütköznek. Fontos hangsúly van azon, hogy <b>valamelyik alma</b>, mert a kosár bármelyik almával ütközhet. Vagyis ebben a feladatban is be kell járnunk az almákat tartalmazó tömböt, hogy minden alma esetén megvizsgálhassuk, hogy ütközik-e a kosárral. Ha igen, akkor kétféle eset van: vagy romlott almát kaptunk el vagy egészségeset. Ha romlott almát kaptunk el, akkor a játéknak vége, ezért a <span class="kodreszlet">vége</span> változót <span class="kodreszlet">true</span>-ra kell állítani. Ha egészséges almát kaptunk el, akkor tűnjön el a képernyőről az adott alma, vagyis töröljük ki őt a tömbből. Mivel az új almákat később a tömb végére fogjuk fűzni, ezért a legalacsonyabban lévő alma, amit valószínűleg elkapunk, a tömb legelső, vagyis 0. indexén lévő eleme. Ezért minden elkapott alma esetén a tömb legelső elemét (almáját) kell törölni. Mindez történhet az almamozgatással egy időben, tehát bűvítsük az almák mozgatását a következőképpen:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -563,7 +563,7 @@ function frissítés(dt) {
 
             <p>A <span class="kodreszlet">.splice(0, 1)</span> azt jelenti, hogy a 0. indextől kezdődően törlünk 1 elemet. A <span class="kodreszlet">.splice(2, 2)</span> azt jelenti, hogy a 2. indextől kezdve törlünk 2 elemet. A <span class="kodreszlet">db</span> változóban tároljuk az elkapott piros almák számát. A romlott almákat csak akkor töröljük a tömbből, ha azok elérik a képernyő alját:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -593,7 +593,7 @@ function frissítés(dt) {
 
             <p>A játéknak nemcsak akkor van vége, amikor romlott almát kapunk el, hanem akkor is, ha hagytunk leesni egy piros almát:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -626,7 +626,7 @@ function frissítés(dt) {
 
             <p>Amikor a játéknak vége, minden alma álljon meg ott, ahol éppen van. Vagyis csak akkor mozogjanak, ha a játéknak még nincs vége:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -663,7 +663,7 @@ function frissítés(dt) {
 
             <p>A játék lényege, hogy <b>több alma</b> elkapására van lehetőségünk. Mivel már létezik az almát létrehozó függvény, csak újra és újra meg kell hívni azt. A kérdés már csak az, hogy mikor jöjjön a következő alma? Erre több válasz is adható, a fejleszőn múlik. Én most azt javaslom, hogy akkor jöjjön a következő, amikor az előző alma már legalább 100 px-nyit (<span class="kodreszlet">almagyakoriság</span>nyit)ment lefelé:</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
@@ -685,7 +685,7 @@ function frissítés(dt) {
 
             <h4>Pontszám kiírása</h4>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function rajzolás() {
     ...
@@ -702,7 +702,7 @@ function rajzolás() {
 
             <p>Az  egyre gyakoribb almák eléréséhez csak az <span class="kodreszlet">almagyakoriság</span> változó értékét kell csökkenteni. Ennek minkéntje szintén a fejlesztő preferenciáira van bízva. Én most azt javaslom, hogy minden elkapott alma után csökkentsük ennek értékét 5-tel, de 50 px-nél kevesebb ne lehessen két alma között. Mivel az almák mozgatásán belül vizsgáljuk az elkapást, így egy plusz feltétel hozzáadásával itt kezelni tudjuk a gyakoriságot.</p>
 
-            <pre class="hidden">
+            <pre class="">
                 <code>
 function frissítés(dt) {
     ...
